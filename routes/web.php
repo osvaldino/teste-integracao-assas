@@ -1,20 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
+
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('payment');
+})->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::post('/create-payment', [PaymentController::class, 'createPayment'])->name('create.payment');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/payment/success/{idPayment?}', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 
-require __DIR__.'/auth.php';
+Route::get('/payment/error', function () {
+    return view('payment_error');
+})->name('payment.error');
