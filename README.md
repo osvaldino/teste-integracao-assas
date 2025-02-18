@@ -1,66 +1,61 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Processamento de pagamentos integrado ao Asaas
 
-## About Laravel
+Este projeto é um teste realizado em processo seletivo, onde aplico a integração ao sistema de processamento de pagamentos Asaas.
+Utilizando o framework Laravel 11, e seus recursos de rotas, controllers, models, migrations, Views e uma camada de Serviço para comunicação com a API da Asaas.
+As views são geradas com o template engine Blade, padrão do Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 💻 Tecnologias requeridas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### Ambiente de desenvolvimento contendo as seguintes ferramentas:
+- PHP >= 8.3
+- MySQL 8
+- Composer >= 2.5
+- Node >= 18.x
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📖 Instalação
+```
 
-## Learning Laravel
+# Passo 1: Clone o repositório.
+git clone https://github.com/osvaldino/teste-integracao-assas.git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Passo 2: Acesse a pasta
+cd teste-integracao-assas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# Passo 3: Instale as dependências
+composer install && npm install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Passo 4: Crie o arquivo .env
+cp .env.example .env
 
-## Laravel Sponsors
+# Passo 5: Gere a chave de criptografia
+php artisan key:generate
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Passo 6: Defina as configurações do banco de dados no arquivo .env
+DB_CONNECTION=mysql
+DB_HOST=localhost // ou o endereço do seu banco de dados
+DB_PORT=3306
+DB_DATABASE={nome do seu banco de dados}
+DB_USERNAME={usuário do seu banco de dados}
+DB_PASSWORD={senha do seu banco de dados}
 
-### Premium Partners
+# Passo 7: Defina as configurações da API da Asaas no arquivo .env (BASE_URL da API e o API_KEY da API)
+# A BASE_URL da API da Asaas pode ser encontrada <a href="https://docs.asaas.com/docs/sandbox" target="_BLANK">Aqui</a>.
+# A API_KEY da API da Asaas pode ser gerado no seu painel de controle da Asaas <a href="https://sandbox.asaas.com/customerApiAccessToken/index" target="_BLANK">Aqui</a>..
+ASAAS_BASE_URL=https://api-sandbox.asaas.com/v3/
+ASAAS_API_KEY=
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+# Passo 9: Criar as tabelas do banco de dados
+php artisan migrate
 
-## Contributing
+# Passo 10: Iniciar o servidor para testar a aplicação
+php artisan serve
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Passo 11: Em outro terminal
+npm run build
 
-## Code of Conduct
+Acessar o link http://localhost:8000/ te dará acesso a aplicação.
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Feito com muito ❤ and 💪🏾 by Osvaldino Neto ☺️
