@@ -15,47 +15,68 @@ As views são geradas com o template engine Blade, padrão do Laravel.
 - Node >= 18.x
 
 ## 📖 Instalação
+
+##### Passo 1: Clone o repositório.
+```bash
+git clone https://github.com/osvaldino/teste-integracao-assas.git
 ```
 
-# Passo 1: Clone o repositório.
-git clone https://github.com/osvaldino/teste-integracao-assas.git
-
-# Passo 2: Acesse a pasta
+##### Passo 2: Acesse a pasta
+```bash
 cd teste-integracao-assas
+```
 
-# Passo 3: Instale as dependências
+##### Passo 3: Instale as dependências
+```bash
 composer install && npm install
+```
 
-# Passo 4: Crie o arquivo .env
+##### Passo 4: Crie o arquivo .env
+```bash
 cp .env.example .env
+```
 
-# Passo 5: Gere a chave de criptografia
+##### Passo 5: Gere a chave de criptografia
+```bash
 php artisan key:generate
+```
 
-# Passo 6: Defina as configurações do banco de dados no arquivo .env
+##### Passo 6: Defina as configurações do banco de dados no arquivo .env
+```bash
 DB_CONNECTION=mysql
 DB_HOST=localhost // ou o endereço do seu banco de dados
 DB_PORT=3306
 DB_DATABASE={nome do seu banco de dados}
 DB_USERNAME={usuário do seu banco de dados}
 DB_PASSWORD={senha do seu banco de dados}
+```
 
-# Passo 7: Defina as configurações da API da Asaas no arquivo .env (BASE_URL da API e o API_KEY da API)
-# A BASE_URL da API da Asaas pode ser encontrada <a href="https://docs.asaas.com/docs/sandbox" target="_BLANK">Aqui</a>.
-# A API_KEY da API da Asaas pode ser gerado no seu painel de controle da Asaas <a href="https://sandbox.asaas.com/customerApiAccessToken/index" target="_BLANK">Aqui</a>..
+##### Passo 7: Defina as configurações da API da Asaas no arquivo .env (BASE_URL da API e o API_KEY da API)
+A BASE_URL da API da Asaas pode ser encontrada [Aqui](https://docs.asaas.com/docs/sandbox).
+A API_KEY da API da Asaas pode ser gerado no seu painel de controle da Asaas [Aqui](https://sandbox.asaas.com/customerApiAccessToken/index).
+```bash
 ASAAS_BASE_URL=https://api-sandbox.asaas.com/v3/
 ASAAS_API_KEY=
-
-# Passo 9: Criar as tabelas do banco de dados
-php artisan migrate
-
-# Passo 10: Iniciar o servidor para testar a aplicação
-php artisan serve
-
-# Passo 11: Em outro terminal
-npm run build
-
-Acessar o link http://localhost:8000/ te dará acesso a aplicação.
 ```
+
+##### Passo 9: Criar as tabelas do banco de dados
+```bash
+php artisan migrate
+```
+
+##### Passo 10: Iniciar o servidor para testar a aplicação
+```bash
+php artisan serve
+```
+
+##### Passo 11: Em outro terminal
+```bash
+npm run build
+```
+
+#### Acessar a http://localhost:8000/ e te dará acesso a aplicação.
+
+<br>
+<br>
 
 Feito com muito ❤ and 💪🏾 by Osvaldino Neto ☺️
